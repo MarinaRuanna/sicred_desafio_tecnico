@@ -1,42 +1,40 @@
 
-    TESTE TECNICO FINAL  - SICRED ESTÁGIO DESENVOLVE TECH
-
-Lógica de programação - Implementar as questões 1, 2 e 3
-na linguagem de programação de sua preferência ou em português estruturado.
-
-- Questão 1: Implementar um gerenciador de limite de cartão de credito.
-
-        - As entradas são: limite e lista de compras;
-        - A saída deve ser 1 se o limite foi excedido e 0 se o limite não foi;
-        - O limite é excedido quando a soma das compras é maior que o limite
-
-- Questão 2: Calcular o rendimento da poupança de acordo com os seguintes requisitos:
-
-        - As entradas são: valor, quantidade de meses, taxa SELIC, e Taxa Referencial;
-        - Se a SELIC estiver abaixo de 8.5, a poupança rende 70% de Taxa SELIC e Taxa Referencial (ao mês)
-        - Se a SELIC estiver acima, a poupança rende 0.5% + Taxa Referencial (ao mês);
-        - A saída deve ser o resultado do investimento (inicial + rendimento).
-
-- Questão 3: Retorna não apenas o resultado, mas retorna de forma estruturada o valor inicial,
-             resultado final do investimento e o resultado do rendimento mês a mês.
-
-- Questão Bônus: Descrever ou escrever testes para garantir que o código funciona nos casos mais comuns
-            (acima da SELIC, abaixo da SELIC, etc).
-
-
-
-# Questão 1::
+## SICRED ESTÁGIO DESENVOLVE TECH 
+### TESTE TECNICO FINAL - (Lógica de programação)
+### QUESTÃO 1:
 
 ### Implementar um gerenciador de limite de cartão de credito.
+ - As entradas são: limite e lista de compras;
+ - A saída deve ser 1 se o limite foi excedido e 0 se o limite não foi;
+ - O limite é excedido quando a soma das compras é maior que o limite
+    
+        A versão simplificada da solução desta questão esta no arquivo teste_tecnico_sicredi.py
+        Trata-se de uma função que recebe como parâmetros o valor do limite do cartão e um dicionário contendo os 
+        itens do carrinho de compras, retornando 1 se o limite for excedido e 0 se o limite não foi excedido. 
+        (O limite é excedido quando a soma do valor dos itens no carrinho de compras é maior que o limite)
 
-        - As entradas são: limite e lista de compras;
-        - A saída deve ser 1 se o limite foi excedido e 0 se o limite não foi;
-        - O limite é excedido quando a soma das compras é maior que o limite
-        
-A versão simplificada da solução desta questão esta no arquivo teste_tecnico_sicredi.py
-Trata-se de uma funçõa que recebe como parâmetros o valor do limite do cartão e uma dicionário contendo uma os 
-itens do carrinho de compras e retorna 1 se o limite for excedido e retorna 0 se o limite não foi. (O limite é excedido 
-quando a soma do valor dos itens no carrinho de compras é maior que o limite)
+### Resolução da questão:
+
+O projeto mercado_sicredi utiliza POO, usando os objetos Produto e Cartao em um mercado simplificado, onde é possível:
+ - cadastrar produtos;
+ - listar produtos;
+ - comprar produtos;
+ - visualizar carrinho;
+ - fechar pedido;
+ - sair do sistema.
+
+Na finalização da compra (fechar_pedido()) eu utilizei a função do objeto Cartao (cartao.verificar_limite()), baseada na Questão 1, 
+que verifica se o limite disponível é compatível com o valor da compra e ,caso seja, esse valor é subtraído do limite do cartão (cartao.comprar()).
+
+
+O fluxo de execução é:
+- Cadastrar os produtos que deseja que estejam dispóniveis
+
+- Adicionar ao carrinho de compras a partir do código gerado no cadastro do produto. Ao ser selecionada a opção Adicionar 
+ao carrinho os produtos disponiveis serão listados.
+
+- Fechar o pedido. Onde será verificado se o limite do cartão é suficiente para comprar os produtos. Caso não seja o 
+carrinho sera esvaziado e o programa retornará para o menu inicial. (Os produtos cadastrados anteriormente ainda estarão disponiveis)
 
 
 

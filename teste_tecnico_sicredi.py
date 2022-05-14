@@ -1,21 +1,9 @@
 
 """
 QUESTÃO 1:
-Está é uma implementação simplificada da Questão 1. Fiz outro projeto utilizando POO, onde eu criei os objetos
-Produto e Cartao para que fossem usados em um mercado simplificado, onde é possivel:
- - cadastrar produtos;
- - listar produtos;
- - comprar produtos;
- - visualizar carrinho;
- - fechar pedido;
- - sair do sistema.
-
-Na finalização da compra eu utilizei a função do objeto Cartao, baseada na questão 1, que verifica se o
-limite disponivel é compativel com o valor da compra e ,caso seja, esse valor é subtraido do limite do do cartão.
-
-Este projeto pode ser visto no meu GitHub no link:
-
+Está é uma implementação simplificada da Questão 1.
 """
+
 credito: int = 5800
 carrinho: dict = {
     "Playstation 4": 4500,
@@ -40,7 +28,11 @@ def gerenciador_limite(limite: float, carrinho_compras: dict[str: float]) -> int
 
     return 1
 
+print(gerenciador_limite(credito, carrinho))
+
+
 def test_gerenciador_limite():
+    """Teste para verificar a função gerenciador_limite()"""
     carrinho_compras: dict = {
         "Playstation 4": 4500,
         "Xbox": 2500,
@@ -54,7 +46,7 @@ def test_gerenciador_limite():
 
 test_gerenciador_limite()
 
-print(gerenciador_limite(credito, carrinho))
+
 
 
 
