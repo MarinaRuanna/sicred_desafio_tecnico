@@ -7,11 +7,23 @@
  - As entradas são: limite e lista de compras;
  - A saída deve ser 1 se o limite foi excedido e 0 se o limite não foi;
  - O limite é excedido quando a soma das compras é maior que o limite
+ 
+ **Versão simplificada da resolução da questão:**
     
-        A versão simplificada da solução desta questão esta no arquivo teste_tecnico_sicredi.py
-        Trata-se de uma função que recebe como parâmetros o valor do limite do cartão e um dicionário contendo os 
-        itens do carrinho de compras, retornando 1 se o limite for excedido e 0 se o limite não foi excedido. 
-        (O limite é excedido quando a soma do valor dos itens no carrinho de compras é maior que o limite)
+        def gerenciador_limite(limite: float, carrinho_compras: dict[str: float]) -> int:
+            """
+            A função recebe o valor do limite do cartão e um carrinho de compras e verifica se a compra dos itens do carrinho
+            pode ser efetuada, retornando 1 caso o limite seja excedido e 0 caso contrario.
+            """
+            valores: list  = [valor for valor in carrinho_compras.values()]
+            valor_compra: float = sum(valores)
+
+            if valor_compra <= limite:
+
+            return 0
+
+
+        return 1
 
 ### Resolução da questão:
 

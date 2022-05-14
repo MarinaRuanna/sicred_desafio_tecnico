@@ -1,7 +1,9 @@
 
 """
 QUESTÃO 1:
-Está é uma implementação simplificada da Questão 1.
+Está é uma implementação simplificada da Questão 1. Trata-se de uma função que recebe como parâmetros o valor do limite
+do cartão e um dicionário contendo os  itens do carrinho de compras, retornando 1 se o limite for excedido
+e 0 se o limite não foi excedido (O limite é excedido quando a soma do valor dos itens no carrinho de compras é maior que o limite).
 """
 
 credito: int = 5800
