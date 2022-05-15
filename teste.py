@@ -23,16 +23,14 @@ def cria_carrinho():
             resposta: str = input("Deseja adicionar produtos ai seu carrinho? (s / n): ")
 
         elif resposta == 'n' or resposta == "N":
+            valor_total = 0
             print('\n--------------------')
             print('CARRINHO DE COMPRAS:')
             print('--------------------')
             for item in carrinho_compras:
-                for i in item.items():
-                    print(i)
-
-
-
-            print('-----------------------')
+                for dados in item.items():
+                    print(f'{dados[0]}: {dados[1]}')
+                print('-----------------------')
 
             print('\n')
 
@@ -41,48 +39,20 @@ def cria_carrinho():
 
 def gerenciador_limite(limite: float, carrinho_compras: list[dict]) -> int:
     total_compras = 0
+
     for item in carrinho_compras:
-        for i in item.values():
-            total_compras = total_compras + i
+        for i in item.items():
+            total_compras = total_compras + item['valor_total']
 
-        if total_compras <= limite:
-            return 0
-
-    return 1
-
-
-"""
-    total_compra: float = 0
-    for i in carrinho_compras:
-        for j in i.items():
-            for dados in j.items():
-            total_compra = total_compra + dados[3]
-
-        if total_compra <= limite:
-            return 0
-
-    return 1
-    
-    
-    
-            for item in carrinho:
-            for dados in item.items():
-                print(dados[0])
-                print(f'Quantidade: {dados[1]}')
-                valor_total += dados[0].preco * dados[1]
-                
-  valores: list = [item for item in carrinho_compras[]]
-    valor_compra: float = sum(valores)
-
-    if valor_compra <= limite:
+    if total_compras <= limite:
         return 0
 
     return 1
-"""
+
 
 carrinho = cria_carrinho()
 
-print(gerenciador_limite(5000, carrinho))
+print(gerenciador_limite(5, carrinho))
 
 
 
