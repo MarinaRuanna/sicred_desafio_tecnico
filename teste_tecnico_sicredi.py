@@ -7,6 +7,19 @@ QUESTÃO 1: Implementar um gerenciador de limite de cartão de credito.
   - O limite é excedido quando a soma das compras é maior que o limite
 
 """
+def main():
+    limite = int(input("Digite o limite do seu cartão: "))
+    carrinho = cria_carrinho()
+    print(f'O seu limite é de: R$ {limite}')
+    compra = gerenciador_limite(limite, carrinho)
+    if compra:
+        print('Compra não aprovada, limite do cartão ecxedido')
+
+    else:
+        print("Compra aprovada! Obrigada, volte sempre!")
+
+
+
 
 def gerenciador_limite(limite: float, lista_compras: list[dict]) -> int:
     """
@@ -22,26 +35,11 @@ def gerenciador_limite(limite: float, lista_compras: list[dict]) -> int:
 
     return 1
 
-def test_gerenciador_limite():
+
+
+def cria_carrinho():
     """
-    Teste para verificar a função gerenciador_limite()
-    """
-    lista_compras: list = [
-        {'nome': 'Playstation 4', 'preco': 5800, 'quantidade': 1, 'valor_total': 1 * 5800},
-        {'nome': 'Headset Corsair', 'preco': 230, 'quantidade': 3, 'valor_total': 230 * 3},
-        {'nome': 'Mouse Redragon RGB', 'preco': 150, 'quantidade': 1, 'valor_total': 150 * 1},
-        {'nome': 'Teclado mecânico gamer RGB Hyper X', 'preco': 500, 'quantidade': 5, 'valor_total': 500 * 5 }
-    ]
-    assert gerenciador_limite(500, lista_compras) == 1
-
-    assert gerenciador_limite(10000, lista_compras) == 0
-
-test_gerenciador_limite()
-
-
-def cria_carrinho(): # Implementei essa função para dar entrada na função gerenciador_limite()
-                     # através de uma interação com o usuário
-    """
+    Implementei essa função para dar entrada na função gerenciador_limite() através de uma interação com o usuário
     Função que gera uma lista de dicionários que representam produtos armazenados pelo usuário.
     :return: list[carrinho_compras]
     """
@@ -104,11 +102,28 @@ def cria_carrinho(): # Implementei essa função para dar entrada na função ge
             exit(0)
 
 
-from random import randint
-carrinho = cria_carrinho()
-limite = randint(1, 10000) # Gerando limite aleatório para testar a função
-print(f'O seu limite é de: R$ {limite}')
-print(gerenciador_limite(limite, carrinho))
+def test_gerenciador_limite():
+    """
+    Teste para verificar a função gerenciador_limite()
+    """
+    lista_compras: list = [
+        {'nome': 'Playstation 4', 'preco': 5800, 'quantidade': 1, 'valor_total': 1 * 5800},
+        {'nome': 'Headset Corsair', 'preco': 230, 'quantidade': 3, 'valor_total': 230 * 3},
+        {'nome': 'Mouse Redragon RGB', 'preco': 150, 'quantidade': 1, 'valor_total': 150 * 1},
+        {'nome': 'Teclado mecânico gamer RGB Hyper X', 'preco': 500, 'quantidade': 5, 'valor_total': 500 * 5 }
+    ]
+    assert gerenciador_limite(500, lista_compras) == 1
+
+    assert gerenciador_limite(10000, lista_compras) == 0
+
+test_gerenciador_limite()
+
+
+if __name__ == '__main__':
+    main()
+
+
+
 
 
 
